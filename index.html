@@ -128,7 +128,7 @@
 
             nav {
                 position: sticky;
-                top: 0;
+                top: -1px;
                 background-color: #1f1f1f;
                 padding: 15px;
                 text-align: right;
@@ -165,7 +165,6 @@
 
             nav ul li {
                 display: inline-block;
-                padding: 0 10px;
                 text-align: center;
             }
 
@@ -297,15 +296,13 @@
                 src: url('font/TechnaSans-Regular.otf');
             }
 
-
-            /* Estilos para dispositivos con un ancho máximo de 768px */
             @media screen and (max-width: 630px) {
 
 
 
                 nav {
                     position: sticky;
-                    top: 0;
+                    top: -1px;
                     background-color: #1f1f1f;
                     padding: 0px;
                     height: 48px;
@@ -350,20 +347,37 @@
                 }
 
                 #desplegaNav.active {
-                    display: flex; /* Utilizamos flexbox para facilitar la alineación */
-                    flex-direction: column; /* Alineación vertical */
-                    align-items: center; /* Alineación horizontal */
-                    justify-content: center; /* Alineación vertical */
+                    display: grid;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
                     list-style-type: none;
-                    position: relative;
+                    position: absolute;
+                    top: 48px;
+                    left: -76px;
                     margin: 0;
                     padding: 0;
                     font-family: "fuente1";
-                    width: auto;
-                    float: right;
-                    background-color: red;
-                    transform: translateX(18px) translateY(12px);
-                    border-radius: 5px;
+                    /* margin-bottom: 30px; */
+                    width: 106px;
+                    height: 110px;
+                    background-color: #1f1f1f;
+                    border-radius: 0px 0px 5px 5px;
+                    text-align: center;
+                }
+
+                nav ul li ul.deplegableCategorias {
+                    transform: translateX(-122px) translateY(-49.4px);
+                }
+
+                .centrado
+                {
+                    display: inline-block;
+                    margin-left: auto;
+                    margin-right: auto;
+                    position: absolute;
+                    left: auto;
+                    right: auto;
                 }
 
 
@@ -407,14 +421,11 @@
 
             // Obtener el número total de archivos
             let totalArchivos = 6;
-
             // Bucle para cargar los archivos de texto e imágenes
             function cargarArchivos() {
                 const rutaImagenBase = 'img/main/index/';
-
                 for (let contador = 1; contador <= totalArchivos; contador++) {
                     const rutaImagen = `${rutaImagenBase}${contador}.jpg`;
-
                     // Verificar si el archivo existe
                     fetch(`articulos/index/main/${contador}.txt`)
                             .then(response => {
@@ -449,34 +460,43 @@
                 document.addEventListener('DOMContentLoaded', function () {
                     const hamburguesa = document.getElementById('hamburguesa');
                     const desplegaNav = document.getElementById('desplegaNav');
-
+                    const imagenOriginal = hamburguesa.style.backgroundImage;
+                    const nuevaImagen = "url('img/nav/3.png')";
                     hamburguesa.addEventListener('click', function () {
                         desplegaNav.classList.toggle('active');
+                        if (hamburguesa.style.backgroundImage === imagenOriginal) {
+                            hamburguesa.style.backgroundImage = nuevaImagen;
+                        } else {
+                            hamburguesa.style.backgroundImage = imagenOriginal;
+                        }
                     });
                 });
             </script>
+
             <div id="hamburguesa"></div>
-            <ul id="desplegaNav">
-                <li><a href="#">Inicio</a></li>
-                <li>
-                    <a href="#">Categorías</a>
-                    <ul class="deplegableCategorias">
-                        <li>
-                            <a href="#">Robótica</a>
-                            <ul class="deplegableRobotica">
-                                <li><a href="#">Tipos</a></li>
-                                <li><a href="#">Eficiencia</a></li>
-                                <li><a href="#">Marcas</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Mecánica</a></li>
-                        <li><a href="#">Electricidad</a></li>
-                        <li><a href="#">Programación</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Artículos</a></li>
-                <li><a href="#">Contacto</a></li>
-            </ul>
+            <div class="centrado">
+                <ul id="desplegaNav">
+                    <li><a href="#">Inicio</a></li>
+                    <li>
+                        <a href="#">Categorías</a>
+                        <ul class="deplegableCategorias">
+                            <li>
+                                <a href="#">Robótica</a>
+                                <ul class="deplegableRobotica">
+                                    <li><a href="#">Tipos</a></li>
+                                    <li><a href="#">Eficiencia</a></li>
+                                    <li><a href="#">Marcas</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Mecánica</a></li>
+                            <li><a href="#">Electricidad</a></li>
+                            <li><a href="#">Programación</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Artículos</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </div>
         </nav>
         <div class="ultimosArticulos">
             <h2>Últimos artículos</h2>
