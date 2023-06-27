@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Página de Robótica</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="estilos.css">
+        <style>
+
+            *
+            {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                background-color: #f0f0f0;
+                color: #333333;
+                font-family: Arial, sans-serif;
+
+            }
+
+            .ultimosArticulos {
+                max-width: 960px;
+                margin: 0 auto;
+                padding: 20px;
+                text-align: center;
+                background-color: darkgray;
+            }
+
+            .articulosPopulares {
+                max-width: 960px;
+                margin: 0 auto;
+                padding: 0px 20px 20px 20px;
+                text-align: center;
+                background-color: darkgray;
+            }
+
+
+            .ultimosArticulos article {
+                display: inline-block;
+                width: 220px;
+                margin: 10px;
+                vertical-align: top;
+                background: linear-gradient(45deg, #999999, white, #999999);
+                background-size: 210%;
+                padding: 5px;
+                border: 3px #999999 solid;
+                border-radius: 5px;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            }
+
+            .articulosPopulares article {
+                display: inline-block;
+                width: 220px;
+                margin: 10px;
+                vertical-align: top;
+                background: linear-gradient(45deg, #fbff55, white, #fbff55);
+                background-size: 210%;
+                padding: 5px;
+                border: 3px #fbff55 solid;
+                border-radius: 5px;
+                box-shadow: 0 0 20px rgba(251, 255, 85, 0.5);
+            }
+
+            .ultimosArticulos article:hover {
+                display: inline-block;
+                width: 220px;
+                margin: 10px;
+                vertical-align: top;
+                background: linear-gradient(45deg, #999999, white, #999999);
+                background-size: 210%;
+                animation: metalizado 0.3s linear;
+                padding: 5px;
+                border-radius: 5px;
+            }
+
+            .articulosPopulares article:hover {
+                display: inline-block;
+                width: 220px;
+                margin: 10px;
+                vertical-align: top;
+                background: linear-gradient(45deg, #fbff55, white, #fbff55);
+                background-size: 210%;
+                animation: metalizado 0.3s linear;
+                padding: 5px;
+                border-radius: 5px;
+            }
+
+
+            header {
+                position: relative;
+                background-image: url('gif/index/1.gif');
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center center;
+                width: 100%;
+                height: 150px;
+                text-align: center;
+                border-bottom: 2px solid #333333;
+            }
+
+
+            h1 {
+                color: #ffffff;
+                font-size: 28px;
+            }
+
+            h2 {
+                color: #1f1f1f;
+                font-family: "fuente1";
+                font-size: 28px;
+                text-align: left;
+            }
+
+            h3 {
+                color: #1f1f1f;
+                font-family: "fuente1";
+                text-align: left;
+            }
+
+            article p
+            {
+                text-align: justify;
+                color: #1f1f1f;
+            }
+
+            nav {
+                position: sticky;
+                top: 0;
+                background-color: #1f1f1f;
+                padding: 15px;
+                text-align: right;
+                border-bottom: 2px solid #333333;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+            }
+
+            #logo
+            {
+                background-image: url(img/nav/logo/2.png);
+                background-repeat: no-repeat;
+                background-size: cover;
+                width: 30px;
+                height: 30px;
+                float: left;
+                transform: translateY(-8px);
+            }
+
+            #nombre
+            {
+                font-family: "fuente1";
+                font-size: 20px;
+                float: left;
+                transform: translateX(10px);
+                color: white;
+            }
+
+            nav ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                font-family: "fuente1";
+            }
+
+            nav ul li {
+                display: inline-block;
+                padding: 0 10px;
+                text-align: center;
+            }
+
+            nav ul li a {
+                color: #ffffff;
+                text-decoration: none;
+                font-size: 16px;
+                padding: 5px 10px;
+                border-radius: 5px;
+                border: 2px solid transparent;
+            }
+
+            nav ul li a:hover {
+                background: linear-gradient(45deg, #999999, #333333, #999999);
+                background-size: 210%;
+                animation: metalizado 0.3s linear;
+            }
+
+            @keyframes metalizado {
+                100% {
+                    background-position: 0%;
+                }
+                0% {
+                    background-position: 210%;
+                }
+
+            }
+
+            nav ul li ul.deplegableCategorias {
+                display: none;
+                position: absolute;
+                background-color: #1f1f1f;
+                padding-bottom: 10px;
+                padding-top: 10px;
+                border-radius: 5px;
+                transform: translateX(-20px) translateY(5px);
+            }
+
+            nav ul li ul.deplegableCategorias li ul.deplegableRobotica {
+                display: none;
+                position: absolute;
+                background-color: #1f1f1f;
+                padding-bottom: 10px;
+                padding-top: 10px;
+                border-radius: 5px;
+                transform: translateX(130px) translateY(-35px);
+            }
+
+            nav ul li ul.deplegableCategorias li:hover ul.deplegableRobotica {
+                display: block;
+            }
+
+            nav ul li:hover ul.deplegableCategorias {
+                display: block;
+            }
+
+            nav ul li ul.deplegableCategorias li {
+                display: block;
+            }
+
+            nav ul li ul.deplegableCategorias li a {
+                color: #ffffff;
+                display: block;
+                text-decoration: none;
+                transition: 0.3s;
+            }
+
+            nav ul li ul.deplegableCategorias li a:hover {
+
+            }
+
+            #hamburguesa
+            {
+                display: none;
+
+            }
+
+            footer {
+                background-color: #1f1f1f;
+                padding: 20px;
+                text-align: center;
+                color: #ffffff;
+            }
+
+            .button {
+                display: inline-block;
+                padding: 10px 20px;
+                margin: 10px;
+                background-color: #2196f3;
+                color: #ffffff;
+                border: none;
+                border-radius: 5px;
+                font-size: 16px;
+                text-decoration: none;
+                transition: background-color 0.3s ease;
+            }
+
+            .button:hover {
+                background-color: #1565c0;
+            }
+
+            .ultimosArticulos article img
+            {
+                display: block;
+                width: 100%;
+                height: auto;
+                text-align: right;
+                margin-top: 5px;
+                margin-bottom: 5px;
+                border: 3px whitesmoke solid;
+                border-radius: 5px;
+            }
+
+            .articulosPopulares article img
+            {
+                display: block;
+                width: 100%;
+                height: auto;
+                text-align: right;
+                margin-top: 5px;
+                margin-bottom: 5px;
+                border: 3px whitesmoke solid;
+                border-radius: 5px;
+            }
+
+
+            @font-face {
+                font-family: fuente1;
+                src: url('font/TechnaSans-Regular.otf');
+            }
+
+
+            /* Estilos para dispositivos con un ancho máximo de 768px */
+            @media screen and (max-width: 630px) {
+
+
+
+                nav {
+                    position: sticky;
+                    top: 0;
+                    background-color: #1f1f1f;
+                    padding: 0px;
+                    height: 48px;
+                    text-align: right;
+                    border-bottom: 2px solid #333333;
+                    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+                }
+
+                #logo {
+                    background-image: url(img/nav/logo/2.png);
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    width: 30px;
+                    height: 30px;
+                    float: left;
+                    transform: translateY(7.5px) translateX(15.5px);
+                }
+
+                #nombre {
+                    font-family: "fuente1";
+                    font-size: 20px;
+                    float: left;
+                    transform: translateX(25px) translateY(15px);
+                    ;
+                    color: white;
+                }
+
+                #hamburguesa
+                {
+                    display: block;
+                    background-image: url(img/nav/2.png);
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    width: 30px;
+                    height: 30px;
+                    float: right;
+                    transform: translateX(-15px) translateY(8px);
+                }
+
+                #desplegaNav {
+                    display: none;
+                }
+
+                #desplegaNav.active {
+                    display: flex; /* Utilizamos flexbox para facilitar la alineación */
+                    flex-direction: column; /* Alineación vertical */
+                    align-items: center; /* Alineación horizontal */
+                    justify-content: center; /* Alineación vertical */
+                    list-style-type: none;
+                    position: relative;
+                    margin: 0;
+                    padding: 0;
+                    font-family: "fuente1";
+                    width: auto;
+                    float: right;
+                    background-color: red;
+                    transform: translateX(18px) translateY(12px);
+                    border-radius: 5px;
+                }
+
+
+            }
+
+
+
+        </style>
+
+        <script>
+            // Función para cargar el contenido de un archivo de texto
+            function cargarArchivoTexto(numero) {
+                fetch(`articulos/index/main/${numero}.txt`)
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Archivo no encontrado');
+                            }
+                            return response.text();
+                        })
+                        .then(content => {
+                            const elementoTexto = document.getElementById(`text${numero}`);
+                            if (elementoTexto) {
+                                elementoTexto.innerText = content;
+                            }
+                        })
+                        .catch(error => {
+                            console.error(error);
+                        });
+            }
+
+            // Función para cargar una imagen
+            function cargarImagen(numero, rutaImagen) {
+                const imagen = new Image();
+                imagen.src = rutaImagen;
+                imagen.alt = `Imagen artículo ${numero}`;
+                const elementoImagen = document.getElementById(`img${numero}`);
+                if (elementoImagen) {
+                    elementoImagen.appendChild(imagen);
+                }
+            }
+
+            // Obtener el número total de archivos
+            let totalArchivos = 6;
+
+            // Bucle para cargar los archivos de texto e imágenes
+            function cargarArchivos() {
+                const rutaImagenBase = 'img/main/index/';
+
+                for (let contador = 1; contador <= totalArchivos; contador++) {
+                    const rutaImagen = `${rutaImagenBase}${contador}.jpg`;
+
+                    // Verificar si el archivo existe
+                    fetch(`articulos/index/main/${contador}.txt`)
+                            .then(response => {
+                                if (!response.ok) {
+                                    throw new Error('Archivo no encontrado');
+                                }
+                                return response.text();
+                            })
+                            .then(content => {
+                                cargarArchivoTexto(contador);
+                                cargarImagen(contador, rutaImagen);
+                            })
+                            .catch(error => {
+                                console.error(error);
+                            });
+                }
+            }
+
+            cargarArchivos();
+        </script>
+
+
+    </head>
+    <body>
+        <header>
+
+        </header>
+        <nav>
+            <div id="logo"></div>
+            <label id="nombre">Mekabotics</label>
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    const hamburguesa = document.getElementById('hamburguesa');
+                    const desplegaNav = document.getElementById('desplegaNav');
+
+                    hamburguesa.addEventListener('click', function () {
+                        desplegaNav.classList.toggle('active');
+                    });
+                });
+            </script>
+            <div id="hamburguesa"></div>
+            <ul id="desplegaNav">
+                <li><a href="#">Inicio</a></li>
+                <li>
+                    <a href="#">Categorías</a>
+                    <ul class="deplegableCategorias">
+                        <li>
+                            <a href="#">Robótica</a>
+                            <ul class="deplegableRobotica">
+                                <li><a href="#">Tipos</a></li>
+                                <li><a href="#">Eficiencia</a></li>
+                                <li><a href="#">Marcas</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Mecánica</a></li>
+                        <li><a href="#">Electricidad</a></li>
+                        <li><a href="#">Programación</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Artículos</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="ultimosArticulos">
+            <h2>Últimos artículos</h2>
+            <article>
+                <h3>Marcha-Paro con TIA Portal</h3>
+                <div id="img1"></div>
+                <p id="text1"></p>
+            </article>
+            <article>
+                <h3>Título del artículo 2</h3>
+                <div id="img2"></div>
+                <p id="text2"></p>
+            </article>
+            <article>
+                <h3>Título del artículo 3</h3>
+                <div id="img3"></div>
+                <p id="text3"></p>
+            </article>
+        </div>
+
+        <div class="articulosPopulares">
+            <h2>Articulos populares</h2>
+            <article>
+                <h3>Marcha-Paro con TIA Portal</h3>
+                <div id="img4"></div>
+                <p id="text4"></p>
+            </article>
+            <article>
+                <h3>Título del artículo 2</h3>
+                <div id="img5"></div>
+                <p id="text5"></p>
+            </article>
+            <article>
+                <h3>Título del artículo 3</h3>
+                <div id="img6"></div>
+                <p id="text6"></p>
+            </article>
+        </div>
+
+        <footer>
+            <p>© 2023 Página de Robótica. Todos los derechos reservados.</p>
+        </footer>
+    </body>
+</html>

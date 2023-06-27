@@ -1,0 +1,3 @@
+Aprende a implementar una función de marcha paro en 
+TIA Portal utilizando bobinas de salida y contactos 
+para controlar el encendido y apagado de una máquina.
