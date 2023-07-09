@@ -1,3 +1,1 @@
-Aprende a implementar una función de marcha paro en 
-TIA Portal utilizando bobinas de salida y contactos 
-para controlar el encendido y apagado de una máquina.
+Aplicación que calcula el costo aproximado de combustible entre dos puntos en un mapa. Los usuarios seleccionan las ubicaciones y la aplicación estima la distancia y el consumo de combustible. Luego, se calcula el costo del combustible utilizando el precio actual. Los resultados se presentan al usuario.

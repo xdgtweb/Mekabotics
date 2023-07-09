@@ -1,3 +1,1 @@
-Aprende a implementar una función de marcha paro en 
-TIA Portal utilizando bobinas de salida y contactos 
-para controlar el encendido y apagado de una máquina.
+Un proyecto especial que he creado exclusivamente para mi novia y para mí. Es un espacio digital personalizado donde podemos compartir nuestros momentos especiales, fotos, videos y recuerdos juntos, creando una galería virtual privada y única para nuestra relación.a.
